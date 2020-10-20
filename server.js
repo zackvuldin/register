@@ -5,7 +5,7 @@ require('dotenv').config();
 const { PORT = 3000, NODE_ENV = 'development' } = process.env;
 
 //MONGO CONNECTION
-const mongoose = require('./db/conn');
+const mongoose = require('./db/connection');
 
 //CORS
 const cors = require('cors');
@@ -17,7 +17,7 @@ const app = express();
 
 //OTHER IMPORTS
 const morgan = require('morgan');
-const dogRouter = require('./controllers/dog');
+const dogRouter = require('./controllers/registrants');
 
 ////////////
 //MIDDLEWARE

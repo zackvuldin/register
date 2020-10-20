@@ -1,7 +1,7 @@
 // Not sure if I need to require express here.
 const Registrant = require('../models/Registrant');
 
-// Add controller to list all registrants
+// list all registrants
 const getAllRegistrants = (req, res) => {
 	Registrant.find({}).then((registrants) => {
 		res.status(200).json({
@@ -13,7 +13,7 @@ const getAllRegistrants = (req, res) => {
 
 // Add controller to find registrant buy id
 
-// Add controller to create new registrant
+// Add registrant
 const createRegistrant = (req, res) => {
 	const body = req.body;
 	Registrant.create(body).then((registrant) => {
@@ -27,7 +27,7 @@ const createRegistrant = (req, res) => {
 	});
 };
 
-// Add controller to update registrant
+// update registrant
 const updateRegistrant = (req, res) => {
 	const body = req.body;
 	Registrant.findOneAndUpdate({ _id: req.params.id }, body).then(
@@ -43,7 +43,7 @@ const updateRegistrant = (req, res) => {
 	);
 };
 
-// Add controller to delete registrant
+// delete registrant
 const deleteRegistrant = (req, res) => {
 	Registrant.findOneAndDelete({ _id: req.params.id }).then((registrant) => {
 		Registrant.find({}).then((registrants) => {
