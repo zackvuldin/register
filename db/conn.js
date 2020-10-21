@@ -9,12 +9,14 @@ require('dotenv').config();
 const { MONGODBURI } = process.env;
 const mongoose = require('mongoose');
 const config = { useUnifiedTopology: true, useNewUrlParser: true };
-const DB = mongoose.connection;
+const db = mongoose.connection;
 
+// connect
 mongoose.connect(MONGODBURI, config);
 
-DB.on('open', () => console.log('You are connected to Mongo'))
-	.on('close', () => console.log('You are disconnected to Mongo'))
-	.on('error', (err) => console.log(err));
+DB.on('open', () => console.log('Connected to Mongo'))
+	.on('close', () => console.log('Disconnected to Mongo'))
+	.on('error', (error) => console.log(error));
 
+// export the connection
 module.exports = mongoose;
