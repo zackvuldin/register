@@ -34,3 +34,9 @@ app.use(morgan('tiny')); //logging
 app.get('/', (req, res) => {
 	res.json({ hello: 'Hello World!' });
 });
+
+// route
+const registrantRouter = require('./controllers/registrantsRoutes');
+app.use('/registrants/', registrantRouter);
+
+app.listen(PORT, () => console.log('server port: ', PORT));

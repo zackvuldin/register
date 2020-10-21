@@ -7,6 +7,10 @@ if (process.env.NODE_ENV === 'production') {
 } else {
 	mongoURI = 'mongodb://localhost/registrants_db';
 }
-mongoose.connect(mongoURI, { useNewUrlParser: true });
+mongoose.connect(mongoURI, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useCreateIndex: true,
+});
 
 module.exports = mongoose;
